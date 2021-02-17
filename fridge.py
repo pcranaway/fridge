@@ -11,6 +11,8 @@ parser.add_argument('--speed', '-s', type=float, default=1)
 parser.add_argument('--reverb', '-r', type=bool, default=False)
 parser.add_argument('--fps', type=int, default=30)
 parser.add_argument('--bitrate', type=str, default='12000k')
+parser.add_argument('--margin-left', type=int, default=0)
+parser.add_argument('--margin-right', type=int, default=0)
 args = parser.parse_args()
 
 # we import everything we need here for performance
@@ -32,7 +34,7 @@ is_gif = args.background.endswith('.gif')
 # load the background and the audio
 audio = AudioFileClip('slowed.mp3')
 image = VideoFileClip(args.background) if is_gif else ImageClip(args.background)
-image = image.margin(left=100, right=100)
+image = image.margin(left=args.margin_left, right=args.margin_right)
 
 # set loop times
 if is_gif:
