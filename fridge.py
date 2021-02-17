@@ -19,6 +19,7 @@ args = parser.parse_args()
 from moviepy.editor import *
 from pysndfx import AudioEffectsChain
 from math import trunc
+import os
 
 # apply effects to audio
 fx = AudioEffectsChain().speed(args.speed)
@@ -48,3 +49,6 @@ final = final.set_duration(audio.duration)
 
 # render it
 final.write_videofile(args.output, fps=args.fps, codec='mpeg4', bitrate=args.bitrate)
+
+# clean up
+os.remove('tmp.mp3)
