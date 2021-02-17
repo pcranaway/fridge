@@ -8,6 +8,7 @@ parser.add_argument('audio')
 parser.add_argument('background')
 parser.add_argument('output')
 parser.add_argument('--speed', '-s', type=float, default=0.9)
+parser.add_argument('--reverb', '-r', type=bool, default=False)
 args = parser.parse_args()
 
 # we import everything we need here for performance
@@ -16,7 +17,11 @@ from pysndfx import AudioEffectsChain
 from math import trunc
 
 # apply effects to audio
-fx = AudioEffectsChain().speed(args.speed).reverb()
+fx = AudioEffectsChain().speed(args.speed)
+
+if args.reverb:
+    fx = fx.reverb()
+
 fx(args.audio, 'slowed.mp3')
 
 # check if the background is a gif
