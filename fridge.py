@@ -7,7 +7,7 @@ parser = ArgumentParser()
 parser.add_argument('audio')
 parser.add_argument('background')
 parser.add_argument('output')
-parser.add_argument('--speed', '-s', type=float, default=0.9)
+parser.add_argument('--speed', '-s', type=float, default=1)
 parser.add_argument('--reverb', '-r', type=bool, default=False)
 args = parser.parse_args()
 
