@@ -26,13 +26,13 @@ fx = AudioEffectsChain().speed(args.speed)
 if args.reverb:
     fx = fx.reverb()
 
-fx(args.audio, 'slowed.mp3')
+fx(args.audio, 'tmp.mp3')
 
 # check if the background is a gif
 is_gif = args.background.endswith('.gif')
 
 # load the background and the audio
-audio = AudioFileClip('slowed.mp3')
+audio = AudioFileClip('tmp.mp3')
 image = VideoFileClip(args.background) if is_gif else ImageClip(args.background)
 image = image.margin(left=args.margin_left, right=args.margin_right)
 
