@@ -9,6 +9,7 @@ parser.add_argument('background')
 parser.add_argument('output')
 parser.add_argument('--speed', '-s', type=float, default=1)
 parser.add_argument('--reverb', '-r', type=bool, default=False)
+parser.add_argument('--fps', type=int, default=30)
 args = parser.parse_args()
 
 # we import everything we need here for performance
@@ -43,4 +44,4 @@ final = final.set_audio(audio)
 final = final.set_duration(audio.duration)
 
 # render it
-final.write_videofile(args.output, fps=30, codec='mpeg4', bitrate='12000k')
+final.write_videofile(args.output, fps=args.fps, codec='mpeg4', bitrate='12000k')
