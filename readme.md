@@ -17,3 +17,5 @@ sudo mv ./fridge /bin
 
 ## dependencies
 - moviepy
+- pysndfx
+- [sox](https://github.com/chirlu/sox)
