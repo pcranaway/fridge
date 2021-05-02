@@ -51,4 +51,4 @@ final = final.set_duration(audio.duration)
 final.write_videofile(args.output, fps=args.fps, codec='mpeg4', bitrate=args.bitrate)
 
 # clean up
-os.remove('tmp.mp3)
+os.remove('tmp.mp3')
